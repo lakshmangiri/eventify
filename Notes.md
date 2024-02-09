@@ -57,5 +57,10 @@ An Event management web application where one can browse events and buy tickets 
 * Install two packages `mongodb` and `mongoose` using the following command `npm i mongodb mongoose`
 * In the MongoDB atlas, a new Project is created and named as `Eventify`. A database is built with the free version and the username and password is noted. `username` and `password`
 * Setup the DB and get the connection string. `<MongoDb_Uri>` and store it in the .env file, replace the password as well.
+* Let's start adding data, by starting with creation of models. Inside the database folder, create folder named `models` and in that folder models can be created.
+* Starting with `user.model.ts`, where we will have the model schema related to the user information.
+* Next we create the models for the events, which will be created in the `event.model.ts`.
+* An interface is also created in the event model.
+* Now, that we have a clerk user, we should make sure that as soon as a clerk user is created, it should be created in the DB as well. This is done using `Webhooks`. It is an `event trigger`, trigger something and process that event. Using the webhooks, the user data is synced to the backend as soon as user creates his account.
 
 
