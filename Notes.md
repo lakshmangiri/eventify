@@ -55,7 +55,7 @@ An Event management web application where one can browse events and buy tickets 
 * Next moving on to the database part, that will have the events.
 * Create a folder named `database` inside the `lib` folder and then within that create a file named `index.ts`. This will have the logics for the MongoDB setup.
 * Install two packages `mongodb` and `mongoose` using the following command `npm i mongodb mongoose`
-* In the MongoDB atlas, a new Project is created and named as `Eventify`. A database is built with the free version and the username and password is noted. `lakshmangiri98` and `raDKHLXmdxsVXvZ6`
-* Setup the DB and get the connection string. `mongodb+srv://lakshmangiri98:<password>@cluster0.ajudvak.mongodb.net/?retryWrites=true&w=majority` and store it in the .env file, replace the password as well.
+* In the MongoDB atlas, a new Project is created and named as `Eventify`. A database is built with the free version and the username and password is noted. `username` and `password`
+* Setup the DB and get the connection string. `<MongoDb_Uri>` and store it in the .env file, replace the password as well.
 
 
