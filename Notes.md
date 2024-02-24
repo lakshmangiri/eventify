@@ -15,7 +15,7 @@ An Event management web application where one can browse events and buy tickets 
 ## Notes
 
 * Created NextJs App with the following command `npx create-next-app@14.0.4 ./` or for latest version `npx create-next-app@latest ./`
-* Run the application in http://localhost:3000
+* Run the application in http://localhost:3000 using the following command `npm run dev`
 * Install ShadeCn using the following command `npx shadcn-ui@latest init`
 * Installed Button package from ShadeCn using the following command `npx shadcn-ui@latest add button`, the best part with ShadeCn is that whatever the components that are required can be installed using CLI and it is added as an UI component inside the `components` folder.
 * Copied global.css and tailwind.config.ts file from the github repo from adrian (https://github.com/adrianhajdin/event_platform/blob/main/README.md)
@@ -31,7 +31,7 @@ An Event management web application where one can browse events and buy tickets 
 * Start modifying the layout.tsx with class name and start working on Header component.
 * Go to clerkprovider site (https://clerk.com/?utm_source=sponsorship&utm_medium=youtube&utm_campaign=js-mastery&utm_content=meetup-clone), sign in or register and start by creating application. This clerk provider will create sign in component and we can integrate that into our code.
 * Copy the environmental variables and paste it into the `.env.local` file  at the root directory. Then, continue with docs to setup the authentication part.
-* Install the clerk in the project using the following command `npm install @clerk/nextjs`
+* Install the clerk in the project using the following command `npm install @clerk/nextjs`, also for dark themed page install `npm install @clerk/themes`.
 * Wrap the app using clerkprovider.
 * For the clerkprovider, we need middleware and from the docs, copy the middleware source and paste it in the `middleware.ts` in the root directory.
 * Now by reloading the page, it will take us to Login page. Instead of creating sign in page, auth guard, clerk provider will take care of everything.
@@ -74,3 +74,8 @@ An Event management web application where one can browse events and buy tickets 
 * Once we write the server function, we call that function in the `route.ts`. There, we also write a if.. check to check whether the user data exist and then obtains that data using the ClerkId, which can be seen in the schema.
 * Similarly, let's update the source code for the following function as well `updateUser`, `deleteUser`. Copy the `route.ts` code and `utils.ts` code from the github repo which is done in the similar way as the `createUser`.
 * Then, lets create model for category and order model in the `models` folder follows the same method as user model and event model.
+* Now its time to deploy our application only then we can work with data hitting the MongoDB while signing in using the clerkProvider. To deploy, we are using `Vercel`. First, create an account with `Vercel` if not done already.
+* Select, Add New Project and connect to Github as the project is pushed into GitHub. Once the connection is done, all the repositories from the GitHub can be seen in the Vercel too.
+* Select `eventify` project(repo) and select import. The framework is set to be `NextJs`, the root directory is `./`, the env need to be processed. So, the contents from `.env` file is copied and pasted there. Before deploying, make sure you have the project in the Git repo and it is not an empty repo. Once deployed, the site can be seen live through the URL provided by vercel.
+* In the clerkProvider dashboard, we need to add the endpoint as the application is now in the live, we have to pass the url of the live application. The end point url can be something that will look like this `https://eventify-tau.vercel.app/api/webhooks/clerk` and we have to select `user` specific activites in the Events.
+* Copy the secret key from the dashboard and add it to the `.env` file locally and in the vercel deployment dashboard as well. It can be done in the settings under the project, add the `env` and hit save. then, move to deployment and select the project and `redeploy`.

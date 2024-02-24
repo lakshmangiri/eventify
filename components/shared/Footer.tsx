@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Footer = () => {
   return (
-    <footer className='border-t'>
+    <footer style={{ backgroundColor: '#161616'}}>
       <div className="flex-center wrapper flex-between flex flex-col gap-4 p-5 text-center sm:flex-row">
         <Link href="/">
           <Image
@@ -13,7 +13,7 @@ const Footer = () => {
             height={38}
             />
         </Link>
-        <p> 2024 Eventify. All rights reserved.</p>
+        <p style={{color: '#f8f9fa'}}> 2024 Eventify. All rights reserved.</p>
       </div>
     </footer>
   )

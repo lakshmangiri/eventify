@@ -20,8 +20,8 @@ module.exports = withUt({
     extend: {
       colors: {
         primary: {
-          500: '#624CF5', 
-          50: ' #F6F8FD',
+          500: '#3E00FF', // new = , old = #624CF5
+          50: ' #F8F9FA',
           DEFAULT: '#624CF5',
           foreground: 'hsl(var(--primary-foreground))',
         },
@@ -35,7 +35,12 @@ module.exports = withUt({
           400: '#AFAFAF', // Disabled - color name in figma
           50: '#F6F6F6', // White Grey - color name in figma
         },
-        black: '#000000',
+        black: {
+          600: '#111111',
+          500: '#222222',
+          400: '#262626',
+          50: '#333333',
+        },
         white: '#FFFFFF',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -72,6 +77,7 @@ module.exports = withUt({
       backgroundImage: {
         'dotted-pattern': "url('/assets/images/dotted-pattern.png')",
         'hero-img': "url('/assets/images/hero.png')",
+        'hero-bg': "url('/assets/images/hero-bg.png')",
       },
       borderRadius: {
         lg: 'var(--radius)',
