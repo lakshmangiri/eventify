@@ -79,3 +79,28 @@ An Event management web application where one can browse events and buy tickets 
 * Select `eventify` project(repo) and select import. The framework is set to be `NextJs`, the root directory is `./`, the env need to be processed. So, the contents from `.env` file is copied and pasted there. Before deploying, make sure you have the project in the Git repo and it is not an empty repo. Once deployed, the site can be seen live through the URL provided by vercel.
 * In the clerkProvider dashboard, we need to add the endpoint as the application is now in the live, we have to pass the url of the live application. The end point url can be something that will look like this `https://eventify-tau.vercel.app/api/webhooks/clerk` and we have to select `user` specific activites in the Events.
 * Copy the secret key from the dashboard and add it to the `.env` file locally and in the vercel deployment dashboard as well. It can be done in the settings under the project, add the `env` and hit save. then, move to deployment and select the project and `redeploy`.
+* Delete the previously created user and sign in once again, this time the data will be stored in the DB as well. if the data is not storing, then go to Clerk provider dashboard, and in that enable personal information under `user information` section. This will help us while creating the data.
+* Lets now jump into creation of events. Go to `(root)` folder and create a folder named `events`. and inside create an another folder named `create`. Create a file named `page.tsx` inside that.
+* Create a class named `CreateEvent` this class will be used to create events.
+* Also, we create an another UI component named `EventForm` where we will render the form fields. This component will be reusable for `UpdateEvent` class as well. 
+* The `UpdateEvent` class is created inside the `(root)` folder with a new folder named `[id]` -> `update` -> `page.tsx`.
+* We will use React Hook form, a component provided by `shadcn` library for the forms. https://ui.shadcn.com/docs/components/form
+* This can be installed using the following command `npx shadcn-ui@latest add form`.
+* Once installed, follow the documentation in the shadcn and create the forms.
+* Install input with the following command, `npx shadcn-ui@latest add input`, after that follow the next step in the documentation, copy the actual form and paste to EventForm component.
+* Inside the `lib` folder create a new file named `validator.ts`, this will take care of the form validation controls.
+* Then, work on the form fields to change that into what we want, create forms that are related to the event app. Modifications like removing <formlabel>, <formdescription>, modifying classes.
+* Next form field is going to be a drop down, so create a dropdown component in the `shared component` folder. Call the DropDown component in the Events form.
+* Next, work on the DropDown component by creating required props and using the shadcn component `select`. can be installed using the following command `npx shadcn-ui@latest add select`.
+* Copy all the imports from the documentation and paste it. (https://ui.shadcn.com/docs/components/select).
+* Copy the Select code from the document and paste it as well, then we can modify it according to our needs. 
+* Dynamically, call the category model and based on that we can add categories to the drop down. There is also a feature to add new categories by the user itself, this will make a new alert appear on the screen, the user can enter the new category and save it.
+* To Create this, `alert dialog` component from shadcn is used. This component can be installed using the following commnad `npx shadcn-ui@latest add alert-dialog`. The documentation is here (https://ui.shadcn.com/docs/components/dialog).
+* Follow the documentation, copy the imports and example form. Paste it to the dropdown component and modify wherever required.
+* Create other forms, similarly for textarea, copy the following command from the shadcn document to install `npx shadcn-ui@latest add textarea` textarea component.
+* Next, for image upload, we will create another component in the `shared` folder named `FileUploader`. this component will be called in the EventForm component. To upload the image, this is taken care of by a seperate library named `uploadthing`. (https://docs.uploadthing.com/)
+* Sign in with Github into uploadthing. Create an app, using the dashboard. Follow the documentation and install upload thing if not installed already. It can be installed using the following command `npm install uploadthing @uploadthing/react`.
+* Next step is to add the env variables. Copy the API keys from the dashboard of the application and paste it to the .env file in the local.
+* After that, we need to setup a file router, all the files uploaded to upload thing are associated with a file router. we have to add that within the api. Copy the `FileRouter.ts` file from the documentation and paste it to a new file created in the `app->api->uploadthing->core.ts`.
+* Similarly, to create a next.js api route using the filerouter, copy the code from the document and paste to a new file created in the `app->api->uploadthing->route.ts`.
+* To create upload thing components, copy the source code and paste it at `lib->uploadthing.ts`.
