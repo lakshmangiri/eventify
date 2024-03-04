@@ -104,3 +104,9 @@ An Event management web application where one can browse events and buy tickets 
 * After that, we need to setup a file router, all the files uploaded to upload thing are associated with a file router. we have to add that within the api. Copy the `FileRouter.ts` file from the documentation and paste it to a new file created in the `app->api->uploadthing->core.ts`.
 * Similarly, to create a next.js api route using the filerouter, copy the code from the document and paste to a new file created in the `app->api->uploadthing->route.ts`.
 * To create upload thing components, copy the source code and paste it at `lib->uploadthing.ts`.
+* We will call the component from the uploadThing and will use that. we will use `useDropZone` and will use that in the fileUploader.ts 
+* follow the video and copy the adrian's code of fileuploader and watch him explaing the code or do self learn. you will come with a FilePath import error. (https://stackoverflow.com/questions/77941451/module-uploadthing-react-has-no-exported-member-filewithpath) refer the following stackoverflow to fix the error.
+* Next, we create form for the location and followed by StartDateTime and EndDateTime. For this, we will use react date picker package. This can be installed using `npm install react-datepicker --save`.
+* By importing date picker, use the date picker in the form. Should also install the types since we are using typeScript. `npm i --save-dev @types/react-datepicker`.
+Next, we move on to Price and Url form. Re writing the same form field and modifying the name this can be implemented.
+* For the price field, there is a checkbox and to implement that, checkbox component from `shadcn` need to be installed. To install, the following command can be used `npx shadcn-ui@latest add checkbox`
