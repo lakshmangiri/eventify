@@ -110,3 +110,14 @@ An Event management web application where one can browse events and buy tickets 
 * By importing date picker, use the date picker in the form. Should also install the types since we are using typeScript. `npm i --save-dev @types/react-datepicker`.
 Next, we move on to Price and Url form. Re writing the same form field and modifying the name this can be implemented.
 * For the price field, there is a checkbox and to implement that, checkbox component from `shadcn` need to be installed. To install, the following command can be used `npx shadcn-ui@latest add checkbox`
+* Implement a checkbox form and place the code inside the price form field.
+* Then, reimplement an another form field to get the url of the event.
+* Now, that we have all the forms, test it by selecting submit button to see if you can get all the form values in the console log. 
+* Once, that is done, we can move to category form to add categories for the event.
+* Let; get to the dropdown component and create the logic for adding the categories.
+* In the action folder, create a new action file named `category.action.ts`. This will contain the logic to add category to the category dropdown. This is used to get all the categories and also to get individual categories.
+* After creating the logic to add categories to database, the categories can be now added using the small alert dialog and it will stored in the db.
+* Now, that we have all the values for the the event, let's pass that to the backend to submit in the Database. Let's work on the onSubmit function in the EventForm.
+* The logic for the front end is done for creating an event in the above function. To connect with the backend, we need a create a function named `createEvent` in the `event.action.ts`.
+* Once, the `createEvent` logic is added in the event.action.ts, we can try creating a event. Make sure you are logged in with the user. When you try to create a event, had an error stating user Id was undefined. Let's fix this.
+* Since we use clerk for login, we have to customize the session in the clerk. Go to `clerk dashboard->sessions->edit->`. There we have to expose our user meta data that is like first name, last name.
