@@ -121,3 +121,16 @@ Next, we move on to Price and Url form. Re writing the same form field and modif
 * The logic for the front end is done for creating an event in the above function. To connect with the backend, we need a create a function named `createEvent` in the `event.action.ts`.
 * Once, the `createEvent` logic is added in the event.action.ts, we can try creating a event. Make sure you are logged in with the user. When you try to create a event, had an error stating user Id was undefined. Let's fix this.
 * Since we use clerk for login, we have to customize the session in the clerk. Go to `clerk dashboard->sessions->edit->`. There we have to expose our user meta data that is like first name, last name.
+* Then, we have to make sure we get the right user meta data (user id) in the create page. Once, that is been verified, the event form will now submit and will store the data in the Event collection in the DB.
+* Upon successful submission, it will take the user back to the Events detail page, unfortunately it is not created which we will start now.
+* In the events folder under `events->[id]`, we create a file named page.tsx, which will act as event details page.
+* Go to the Event action which has functions related to Event actions like Create, get, edit. As of now only create was defined, let's define action for `getEventById` to get individual events by Id. This will connect to the database and will get that event where we have passed the event Id. Write a populate function to run a query to get the data based on the user, category and then id.
+* Now, call the getEventById function in the EventDetailsPage to obtain the data. Once called, check in the console if the Event details are obtained.
+* Once, obtained, start with the UI for the Event details page.
+* Sometimes, next.js protects the app from rendering images from unknown sources. In order to fix this, the upload thing server must be added to `next.config.js` file. A reload is required in order to fix the next.js environment
+* Once the Event Id page UI is done, move to home page and start working on  Collection component. mainly the collection component will show all the list of events available.
+* Go to event action and create an another function named getAllEvents. Using this action get all the events and display in the Collection section.
+* All the available events are displayed using  `Card` component (shared component). All the information regarding the Events and which organizer created the event, to which category the event is associated, everything are displayed.
+* Additionally, some conditions are rendered in the Event card like, if it is free, they will be no amount displayed and will be shown free. If it has the same user logged in and event created the same user, then `Edit and Delete` button are shown, so that the User can Edit or Delete the Event.
+* For `Edit` the create component UI is reused. The Event information are fetched and displayed in the form, making it easier for the user to modify the contents that they wish too.
+* Once the Edit event is completed, we will move to make sure that the modified event is updated in the DB by writing the function for `Update` type. if the form type is `Update` and `onSubmit` function, the modified data are updated in the DB.
